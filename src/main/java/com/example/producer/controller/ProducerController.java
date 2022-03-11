@@ -13,8 +13,16 @@ public class ProducerController {
     @Value("${server.port}")
     private String port;
 
-    @GetMapping("/v1/producer")
+    @Value("${producer.test:}")
+    private String test;
+
+    @GetMapping("/producer/v1/producer")
     public String getApplictaionName(){
         return applicationName+":"+port;
+    }
+
+    @GetMapping("/producer/v1/test")
+    public String getTest(){
+        return test;
     }
 }
